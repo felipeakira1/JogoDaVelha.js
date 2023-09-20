@@ -12,12 +12,38 @@ function verificaVitoria(jogador) {
     // Verificar linhas
     for(let i = 0; i < 3; i++) {
         if (matriz[i][0] === jogador && matriz[i][1] === jogador && matriz[i][2] === jogador) {
+            let linhaVitoria = document.getElementById('linhaVitoria');
+            switch(i) {
+                case 0:
+                    linhaVitoria.style.top = `11.4vh`;
+                    break;
+                case 1:
+                    linhaVitoria.style.top = `32.6vh`;
+                    break;
+                case 2:
+                    linhaVitoria.style.top = `53.8vh`;
+                    break;
+            }
+            linhaVitoria.style.width = `105%`
             return true; // Vitória na linha
         }
     }
     // Verificar colunas
     for(let j = 0; j < 3; j++) {
         if(matriz[0][j] === 1 && matriz[1][j] === 1 && matriz[2][j] === 1) {
+            let colunaVitoria = document.getElementById('colunaVitoria');
+            switch(j) {
+                case 0:
+                    colunaVitoria.style.left = `11.4vh`;
+                    break;
+                case 1:
+                    colunaVitoria.style.left = `32.6vh`;
+                    break;
+                case 2:
+                    colunaVitoria.style.left = `53.8vh`;
+                    break;
+            }
+            colunaVitoria.style.height = `105%`;
             return true;
         }
     }
@@ -29,6 +55,27 @@ function verificaVitoria(jogador) {
         return true; // Vitória na diagonal /
     }
     return false; 
+}
+
+function mostrarMenuVitoria(vezDeJogar) {
+    const fundo_menus = document.getElementById('fundo_menus');
+    const menu_vitoria = document.getElementById('menu_vitoria');
+    const titulo_vitoria = document.getElementById('titulo_vitoria')
+    fundo_menus.style.display = 'block';
+    menu_vitoria.style.display = 'block;'
+    if(vezDeJogar == 1) {
+        titulo_vitoria.textContent = `${valor_nome_jogador1} GANHOU`
+    } else {
+        titulo_vitoria.textContent = `${valor_nome_jogador2} GANHOU`
+    }
+}
+
+function fecharMenuVitoria() {
+    
+    const fundo_menus = document.getElementById('fundo_menus');
+    const menu_vitoria = document.getElementById('menu_vitoria');
+    fundo_menus.style.display = 'none';
+    menu_vitoria.style.display = 'none;'
 }
     /* Renderizar tabuleiro */
 function renderizarTabuleiro() {
@@ -45,7 +92,9 @@ function renderizarTabuleiro() {
                     matriz[i][j] = vezDeJogar;
                     cell.classList.add('vezDeJogar1');
                     if(verificaVitoria(vezDeJogar)) {
-                        alert("GANHOU")
+                        setTimeout(() => {
+                            mostrarMenuVitoria(vezDeJogar);
+                        }, 1500);
                     } else {
                         alternarVez();
                     }
@@ -55,7 +104,9 @@ function renderizarTabuleiro() {
                     matriz[i][j] = vezDeJogar;
                     cell.classList.add('vezDeJogar2');
                     if(verificaVitoria(vezDeJogar)) {
-                        alert("GANHOU")
+                        setTimeout(() => {
+                            mostrarMenuVitoria(vezDeJogar);
+                        }, 1500);
                     } else {
                         alternarVez();
                     }
@@ -91,6 +142,7 @@ function alternarVez() {
 }
 
 function iniciarJogo() {
+    fecharMenuVitoria();
     renderizarTabuleiro();
     vezJogador1();
 }
