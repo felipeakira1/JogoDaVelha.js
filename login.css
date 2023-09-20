@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
 
-
 :root {
     --cor-de-fundo: #1F1F1F;
     --cor-conteiner: #262626;
@@ -13,21 +12,25 @@
     box-sizing: border-box;
     font-family: Koulen;
     color: white;
-    letter-spacing: 2px;
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--cor-de-fundo);
     display: flex;
     justify-content: center;
     align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(226deg, #00a6fb, #dd0426);
+    background-size: 400% 400%;
+
+    -webkit-animation: animacao1 7s ease infinite;
+    -moz-animation: animacao2 7s ease infinite;
+    animation: animacao3 7s ease infinite;
 }
 
 .conteiner {
-    border: 1px solid black;
-    padding: 20px;
+    padding: 50px;
     background-color: var(--cor-conteiner);
     border-radius: 10px;
     box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.25);
@@ -36,7 +39,7 @@ body {
 .formulario {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
 }
 
 .formulario h1 {
@@ -44,43 +47,69 @@ body {
     background-color: var(--cor-campos-formulario);
     border-radius: 10px;
     font-size: 40px;
+    letter-spacing: 3px;
 }
+
 .field {
     display: flex;
     flex-direction: column;
+    gap: 10px;
     width: 100%;
+    font-family: Arial, Helvetica, sans-serif
 }
 
 .field label {
     cursor: pointer;
     font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif
 }
 .field input {
     background-color: var(--cor-campos-formulario);
     border: 1px solid var(--cor-campos-formulario);
     outline: none;
-    padding: 5px 15px;
-    font-size: 14px;
+    padding: 10px 15px;
+    font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
 }
 
+.field span {
+    color: rgb(255, 105, 105);
+    
+    font-family: Arial, Helvetica, sans-serif;
+}
 .field input:focus {
     transition: border 0.2s ease-in-out;
     border: 1px solid white;
 }
 
 .btn-jogar {
-    background: rgb(14,255,0);
-    background: linear-gradient(90deg, rgba(14,255,0,1) 0%, rgba(104,255,164,1) 78%);
     height: 50px;
     font-size: 24px;
     border: none;
     border-radius: 5px;
     color: black;
     cursor: pointer;
+    background-color: #F0F0F0;
 }
 
 .btn-jogar:hover {
-    background-color: #42b81a;
+    background-color: #E1E1E1;
     transition: background-color;
+}
+
+@-webkit-keyframes animacao1 {
+    0%{background-position:91% 0%}
+    50%{background-position:10% 100%}
+    100%{background-position:91% 0%}
+}
+@-moz-keyframes animacao2 {
+    0%{background-position:91% 0%}
+    50%{background-position:10% 100%}
+    100%{background-position:91% 0%}
+}
+@keyframes animacao3 {
+    0%{background-position:91% 0%}
+    50%{background-position:10% 100%}
+    100%{background-position:91% 0%}
 }

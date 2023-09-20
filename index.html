@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
     <title>Jogo da velha</title>
 </head>
 <body>
     <main class ="conteiner">
-        <form action="jogo.html" class="formulario">
+        <form action="jogo.html" id="form" class="formulario">
             <h1>JOGO DA VELHA</h1>
             <div class="field">
                 <label for="nome_jogador1">Digite o nome do jogador n° 1:</label>
-                <input type="text" name="nome_jogador1" id="nome_jogador1">
+                <input type="text" name="nome_jogador1" id="nome_jogador1" required>
+                <span class="mensagemErro"></span>
             </div>
             <div class="field">
                 <label for="nome_jogador2">Digite o nome do jogador n° 2:</label>
-                <input type="text" name="nome_jogador2" id="nome_jogador2">
+                <input type="text" name="nome_jogador2" id="nome_jogador2" required>
+                <span class="mensagemErro"></span>
             </div>
-            <button class="btn-jogar">JOGAR</button>
+            <input type="submit" class="btn-jogar" id="btn-jogar" value="JOGAR"></input>
         </form>
     </main>
+    <script src="login.js"></script>
 </body>
 </html>
