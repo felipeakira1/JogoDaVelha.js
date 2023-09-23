@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="jogo.css">
+    <link rel="stylesheet" href="../css/jogo.css">
     <title>Jogo da velha</title>
 </head>
 <body>
     <div id="fundo_menus">
         <div id="menu_vitoria" class="menu">
-            <h1 id="titulo_vitoria">GANHOU</h1>
+            <h1 id="titulo_vitoria"></h1>
+            <button onclick="iniciarJogo()" class="btn btn-azul">JOGAR NOVAMENTE</button>
+            <a href="index.html" class="btn btn-vermelho">SAIR</a>
+        </div>
+        <div id="menu_velha" class="menu">
+            <h1 id="titulo_velha">DEU VELHA!</h1>
             <button onclick="iniciarJogo()" class="btn btn-azul">JOGAR NOVAMENTE</button>
             <a href="index.html" class="btn btn-vermelho">SAIR</a>
         </div>
@@ -18,11 +23,9 @@
     <div class="jogo">
         <div id="nome_jogador1" class="nomeJogador"></div>
         <div id="tabuleiro" class="tabuleiro">
-            <div id="linhaVitoria"></div>
-            <div id="colunaVitoria"></div>
         </div>
         <div id="nome_jogador2" class="nomeJogador"></div>
     </div>
-    <script src="jogo.js"></script>
+    <script src="../js/jogo.js"></script>
 </body>
 </html>

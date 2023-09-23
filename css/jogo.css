@@ -79,9 +79,9 @@ body {
     padding: 30px;
 }
 
-#colunaVitoria {
+.colunaVitoria {
     width: 20px;
-    height: 0;
+    height: 0px;
     background-color: white;
     border-radius: 10px;
     position: absolute;
@@ -90,15 +90,41 @@ body {
     transition: height 1s ease;
 }
 
-#linhaVitoria {
+.linhaVitoria {
     height: 20px;
-    width: 0;
+    width: 0px;
     background-color: white;
     border-radius: 10px;
     position: absolute;
     left: -2vh;
     z-index: 1;
-    transition: all 0.5s ease;
+    transition: width 1s ease;
+}
+
+.diagonalPrincipal {
+    height: 20px;
+    width: 0;
+    top: 48%;
+    left: -18%;
+    background-color: white;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 1;
+    transform: rotate(45deg);
+    transition: width 0.5s ease;
+}
+
+.diagonalSecundaria {
+    height: 20px;
+    width: 0;
+    top: 48%;
+    right: -18%;
+    background-color: white;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 1;
+    transform: rotate(-45deg);
+    transition: width 0.5s ease;
 }
 
 #fundo_menus {
