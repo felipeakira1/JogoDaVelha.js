@@ -17,7 +17,7 @@ function mostrarMenuVitoria(vezDeJogar) {
     const menu_vitoria = document.getElementById('menu_vitoria');
     const titulo_vitoria = document.getElementById('titulo_vitoria')
     fundo_menus.style.display = 'block';
-    menu_vitoria.style.display = 'block;'
+    menu_vitoria.style.display = 'flex';
     if(vezDeJogar == 1) {
         titulo_vitoria.textContent = `${valor_nome_jogador1} GANHOU`
     } else {
@@ -29,14 +29,21 @@ function mostrarMenuVelha() {
     const fundo_menus = document.getElementById('fundo_menus');
     const menu_velha = document.getElementById('menu_velha');
     fundo_menus.style.display = 'block';
-    menu_velha.style.display = 'block';
+    menu_velha.style.display = 'flex';
+}
+
+function fecharMenuVelha() {
+    const fundo_menus = document.getElementById('fundo_menus');
+    const menu_velha = document.getElementById('menu_velha');
+    fundo_menus.style.display = 'none';
+    menu_velha.style.display = 'none';
 }
 
 function fecharMenuVitoria() {
     const fundo_menus = document.getElementById('fundo_menus');
     const menu_vitoria = document.getElementById('menu_vitoria');
     fundo_menus.style.display = 'none';
-    menu_vitoria.style.display = 'none;'
+    menu_vitoria.style.display = 'none';
 }
 
 function verificaLinhas(jogador) {
@@ -123,7 +130,7 @@ function verificaVitoria(jogador) {
     } else {
         contagemVerificacoes++;
         if(contagemVerificacoes == 9) {
-            mostrarMenuVitoria(jogador);
+            mostrarMenuVelha(jogador);
         }
         return false;
     }
@@ -203,6 +210,7 @@ function limparTabuleiro() {
 function iniciarJogo() {
     contagemVerificacoes = 0;
     fecharMenuVitoria();
+    fecharMenuVelha();
     limparTabuleiro();
     renderizarTabuleiro();
     vezJogador1();
